@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package ddia.chapter4;
+
+message Post {
+    int32 id = 1;
+    string title = 2;
+    string body = 3;
+    string author_id = 4;
+    int32 likes = 5;
+    repeated string tags = 6;
+}
+
+message PostDB {
+    repeated Post posts = 1;
+}
+
+message GetPostsRequest {
+    // Empty
+}
+
+message GetPostByIdRequest {
+    string id = 1;
+}
+
+/* CRUD for Posts */
+service PostsService {
+    rpc GetPosts (GetPostsRequest) returns (PostDB) {}
+    rpc GetPostById (GetPostByIdRequest) returns (Post) {}
+    rpc CreatePost (Post) returns (Post) {}
+}
