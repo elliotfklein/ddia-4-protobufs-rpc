@@ -12,6 +12,13 @@ Generate both RPC stubs + protobuf classes:
 python -m grpc_tools.protoc -I. --python_out=. --pyi_out=. --grpc_python_out=. ./post.proto
 ```
 
+## Docker setup
+
+1. Install Dev Containers VS Code extension: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+2. Build the image: `docker build -t ddia-4 .`
+3. Run the image: `docker run -it ddia-4`
+4. Click the "remote" icon in the bottom left of VS Code, then select "Attach to Running Container" and select the `ddia-4` container you just ran
+
 ## Next Steps
 
 1. Run `python server.py` and `python client.py` (in separate terminals) to create some posts — check out `posts.db` and/or `posts.json` to see the encoded data
