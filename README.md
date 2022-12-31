@@ -28,6 +28,7 @@ python -m grpc_tools.protoc -I. --python_out=. --pyi_out=. --grpc_python_out=. .
 - Try changing `Post.id` from an `int32` to a `string` (what happens with old encoded `Post`s when the server deserializes them?)
 - Mark `Post.id` as reserved, then add a new `string` `uuid` field instead
 - Change `Post.views` to a `uint64`
+- Relevant docs for [updating](https://developers.google.com/protocol-buffers/docs/proto3#updating) and [`reserved`](https://developers.google.com/protocol-buffers/docs/proto3#reserved)
 
 4. Try a "rolling upgrade" for a backward-compatible change:
 
@@ -36,6 +37,12 @@ python -m grpc_tools.protoc -I. --python_out=. --pyi_out=. --grpc_python_out=. .
 - Regenerate the protobuf classes
 - Make code changes for the new fields
 - Run the server/client again on a different port
+
+## References
+
+- https://grpc.io/docs/languages/python/basics/
+- https://developers.google.com/protocol-buffers/docs/pythontutorial
+- https://developers.google.com/protocol-buffers/docs/proto3
 
 ### Old commands just for generating protobuf classes
 
